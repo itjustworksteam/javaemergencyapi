@@ -5,7 +5,7 @@
 
 * Server Repo [here](https://github.com/itjustworksteam/emergencyserver.git)
 
-# Install using Gradle
+## Install using Gradle
 
 This repo does not use standard repos, so use JitPack.
 
@@ -25,3 +25,25 @@ allprojects {
 ```
 compile 'com.github.itjustworksteam:javaemergencyapi:0.0.1'
 ```
+
+## Using it
+
+* get the json response
+
+```
+String response = new Emergency().sendRequest(new Numbers(Numbers.LATITUDE_LONGITUDE, "45.0", "9.0"));
+// response is a Json String like this : {"name":"Italy", "code":"IT", "police":"113", "medical":"118", "fire":"115", "closestcity":"Voghera"}
+``` 
+
+* parse the json response
+
+```
+Country country = Country.parse(response);   // response is the string before
+assertEquals("Italy", country.name());
+assertEquals("IT", country.code());
+assertEquals("113", country.police());
+assertEquals("118", country.medical());
+assertEquals("115", country.fire());
+assertEquals("Voghera", country.city());
+```
+ 
