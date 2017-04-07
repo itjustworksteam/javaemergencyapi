@@ -44,6 +44,24 @@ public class ParserTest {
 		assertEquals("Country={name=Italy, code=IT, police=113, medical=118, fire=115, city=Voghera}", country.toString());
 	}
 	
+	@Test
+	public void testSix() {
+		Country country = Country.parse(italyResponse());
+		assertEquals("You are in Italy 🇮🇹", country.prettyToString());
+	}
+	
+	@Test
+	public void testSeven() {
+		Country country = Country.parse(italyResponseWithCity());
+		assertEquals("You are in Italy 🇮🇹 and the closest city is Voghera", country.prettyToString());
+	}
+	
+	@Test
+	public void improveCodeCoverage() {
+		Emoji emoji = new Emoji();
+		emoji.toString();
+	}
+	
 	private String italyResponse() {
 		String output = "";
 		output += "{\"name\":\"Italy\", \"code\":\"IT\", \"police\":\"113\", \"medical\":\"118\", \"fire\":\"115\"}";
