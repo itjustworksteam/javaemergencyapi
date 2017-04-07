@@ -35,5 +35,12 @@ public class Numbers implements Requestable{
 	public String url() {
 		return this.url;
 	}
+	
+	@Override
+	public String toString() {
+		String output = "";
+		output += "Numbers={url="+this.url+"}";
+		return output;
+	}
 
 }

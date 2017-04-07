@@ -35,4 +35,28 @@ public class NumbersTest {
 		assertNull(numbers.url());
 	}
 	
+	@Test
+	public void testSix() {
+		Numbers numbers = new Numbers(Numbers.ALL);
+		assertEquals("Numbers={url=/api/v2/numbers/all}", numbers.toString());
+	}
+	
+	@Test
+	public void testSeven() {
+		Numbers numbers = new Numbers(Numbers.COUNTRY, "it");
+		assertEquals("Numbers={url=/api/v2/numbers/it}", numbers.toString());
+	}
+	
+	@Test
+	public void testEight() {
+		Numbers numbers = new Numbers(Numbers.LATITUDE_LONGITUDE, "45.0", "9.0");
+		assertEquals("Numbers={url=/api/v2/numbers/45.0/9.0}", numbers.toString());
+	}
+	
+	@Test
+	public void testNine() {
+		Numbers numbers = new Numbers("wrong");
+		assertEquals("Numbers={url=null}", numbers.toString());
+	}
+	
 }
