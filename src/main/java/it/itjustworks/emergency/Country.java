@@ -70,5 +70,14 @@ public class Country {
 		output += "}";
 		return output;
 	}
+
+	public String prettyToString() {
+		String output = "";
+		output += "You are in "+this.name+" " + Emoji.withCountry(this.code);
+		if(this.city != null){
+			output += " and the closest city is " + this.city;
+		}
+		return output;
+	}
 	
 }
