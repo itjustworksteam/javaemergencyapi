@@ -23,7 +23,7 @@ allprojects {
 * finally in your dependencies add:
 
 ```
-compile 'com.github.itjustworksteam:javaemergencyapi:0.0.2'
+compile 'com.github.itjustworksteam:javaemergencyapi:0.0.3'
 ```
 
 ## Using it
