@@ -5,6 +5,8 @@ import com.google.gson.JsonParser;
 
 public class Medical implements Requestable {
 
+	private static final String DEFAULT = "default";
+	private static final String MEDICAL = "medical";
 	private static final String LATANDLONG = "latandlong";
 	private static final String COUNTRY = "country";
 	private String url;
@@ -15,7 +17,7 @@ public class Medical implements Requestable {
 	}
 	
 	public Medical() {
-		
+		this(DEFAULT, null, null, null);
 	}
 	
 	private Medical(String type, String country){
@@ -54,7 +56,7 @@ public class Medical implements Requestable {
 	public static Medical parse(String response) {
 		JsonParser parser = new JsonParser();
 		JsonObject medical = parser.parse(response).getAsJsonObject();
-		String number = medical.get("medical").getAsString();
+		String number = medical.get(MEDICAL).getAsString();
 		return new Medical(number);
 	}
 

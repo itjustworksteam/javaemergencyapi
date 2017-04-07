@@ -5,12 +5,14 @@ import com.google.gson.JsonParser;
 
 public class Police implements Requestable {
 
+	private static final String DEFAULT = "default";
+	private static final String POLICE = "police";
 	private static final String LATITUDE_AND_LONGITUDE = "latandlong";
 	private static final String COUNTRY = "country";
 	private String url;
 	
 	public Police() {
-		this.url = null;
+		this(DEFAULT, null, null, null);
 	}
 	
 	private Police(String type, String country){
@@ -55,7 +57,7 @@ public class Police implements Requestable {
 	public static Police parse(String response) {
 		JsonParser parser = new JsonParser();
 		JsonObject police = parser.parse(response).getAsJsonObject();
-		String number = police.get("police").getAsString();
+		String number = police.get(POLICE).getAsString();
 		return new Police(number);
 	}
 

@@ -5,12 +5,14 @@ import com.google.gson.JsonParser;
 
 public class Fire implements Requestable {
 
+	private static final String DEFAULT = "default";
+	private static final String FIRE = "fire";
 	private static final String LATANDLONG = "latandlong";
 	private static final String COUNTRY = "country";
 	private String url;
 	
 	public Fire() {
-		
+		this(DEFAULT, null, null, null);
 	}
 	
 	private Fire(String type, String country){
@@ -54,7 +56,7 @@ public class Fire implements Requestable {
 	public static Fire parse(String response) {
 		JsonParser parser = new JsonParser();
 		JsonObject fire = parser.parse(response).getAsJsonObject();
-		String number = fire.get("fire").getAsString();
+		String number = fire.get(FIRE).getAsString();
 		return new Fire(number);
 	}
 
