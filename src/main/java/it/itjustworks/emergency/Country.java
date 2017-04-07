@@ -60,6 +60,15 @@ public class Country {
 		return this.city;
 	}
 
-	
+	@Override
+	public String toString() {
+		String output = "";
+		output += "Country={name="+this.name+", code="+this.code+", police="+this.police+", medical="+this.medical+", fire="+this.fire;
+		if(this.city != null){
+			output += ", city=Voghera";
+		}
+		output += "}";
+		return output;
+	}
 	
 }

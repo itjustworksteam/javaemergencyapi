@@ -32,6 +32,18 @@ public class ParserTest {
 		assertEquals("Voghera", country.city());
 	}
 	
+	@Test
+	public void testFour() {
+		Country country = Country.parse(italyResponse());
+		assertEquals("Country={name=Italy, code=IT, police=113, medical=118, fire=115}", country.toString());
+	}
+	
+	@Test
+	public void testFive() {
+		Country country = Country.parse(italyResponseWithCity());
+		assertEquals("Country={name=Italy, code=IT, police=113, medical=118, fire=115, city=Voghera}", country.toString());
+	}
+	
 	private String italyResponse() {
 		String output = "";
 		output += "{\"name\":\"Italy\", \"code\":\"IT\", \"police\":\"113\", \"medical\":\"118\", \"fire\":\"115\"}";
