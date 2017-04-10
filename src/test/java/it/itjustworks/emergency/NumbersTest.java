@@ -104,4 +104,9 @@ public class NumbersTest {
 		country.toString();
 	}
 	
+	public void usageWithBackend() throws IOException {
+		Country country = Country.parse(new Emergency().withBackEndUrl("").sendRequest(new Numbers().withCountry("it")));
+		country.toString();
+	}
+	
 }
