@@ -100,12 +100,12 @@ public class NumbersTest {
 	}
 	
 	public void usageAll() throws IOException {
-		Country country = Country.parse(new Emergency().sendRequest(new Numbers().withCountry("it")));
+		Country country = Country.parse(new Emergency().sendRequest(new Numbers().withCountry("it")), null);
 		country.toString();
 	}
 	
 	public void usageWithBackend() throws IOException {
-		Country country = Country.parse(new Emergency().withBackEndUrl("").sendRequest(new Numbers().withCountry("it")));
+		Country country = Country.parse(new Emergency().withBackEndUrl("").sendRequest(new Numbers().withCountry("it")), null);
 		country.toString();
 	}
 	
