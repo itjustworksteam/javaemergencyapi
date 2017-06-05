@@ -13,7 +13,7 @@ public class ParserTest {
 	
 	@Test
 	public void testTwo() {
-		Country country = Country.parse(italyResponse());
+		Country country = Country.parse(italyResponse(), null);
 		assertEquals("Italy", country.name());
 		assertEquals("IT", country.code());
 		assertEquals("113", country.police());
@@ -23,7 +23,7 @@ public class ParserTest {
 	
 	@Test
 	public void testThree() {
-		Country country = Country.parse(italyResponseWithCity());
+		Country country = Country.parse(italyResponseWithCity(), null);
 		assertEquals("Italy", country.name());
 		assertEquals("IT", country.code());
 		assertEquals("113", country.police());
@@ -34,25 +34,25 @@ public class ParserTest {
 	
 	@Test
 	public void testFour() {
-		Country country = Country.parse(italyResponse());
+		Country country = Country.parse(italyResponse(), null);
 		assertEquals("Country={name=Italy, code=IT, police=113, medical=118, fire=115}", country.toString());
 	}
 	
 	@Test
 	public void testFive() {
-		Country country = Country.parse(italyResponseWithCity());
+		Country country = Country.parse(italyResponseWithCity(), null);
 		assertEquals("Country={name=Italy, code=IT, police=113, medical=118, fire=115, city=Voghera}", country.toString());
 	}
 	
 	@Test
 	public void testSix() {
-		Country country = Country.parse(italyResponse());
+		Country country = Country.parse(italyResponse(), new EnglishLanguage());
 		assertEquals("You are in Italy 🇮🇹", country.prettyToString());
 	}
 	
 	@Test
 	public void testSeven() {
-		Country country = Country.parse(italyResponseWithCity());
+		Country country = Country.parse(italyResponseWithCity(), new EnglishLanguage());
 		assertEquals("You are in Italy 🇮🇹 and the closest city is Voghera", country.prettyToString());
 	}
 	

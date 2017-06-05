@@ -11,17 +11,19 @@ public class Country {
 	private String medical;
 	private String fire;
 	private String city;
+	private Language language;
 	
-	Country(String name, String code, String police, String medical, String fire, String city) {
+	Country(String name, String code, String police, String medical, String fire, String city, Language language) {
 		this.name = name;
 		this.code = code;
 		this.police = police;
 		this.medical = medical;
 		this.fire = fire;
 		this.city = city;
+		this.language = language;
 	}
 	
-	public static Country parse(String request) {
+	public static Country parse(String request, Language language) {
 		JsonParser parser = new JsonParser();
 		JsonObject country = parser.parse(request).getAsJsonObject();
 		String name = country.get("name").getAsString();
@@ -33,7 +35,7 @@ public class Country {
 		if(country.get("closestcity") != null){
 			city = country.get("closestcity").getAsString();
 		}
-		return new Country(name, code, police, medical, fire, city);
+		return new Country(name, code, police, medical, fire, city, language);
 	}
 
 	public String name() {
@@ -59,6 +61,10 @@ public class Country {
 	public String city() {
 		return this.city;
 	}
+	
+	public Language language() {
+		return this.language;
+	}
 
 	@Override
 	public String toString() {
@@ -73,9 +79,9 @@ public class Country {
 
 	public String prettyToString() {
 		String output = "";
-		output += "You are in "+this.name+" " + Emoji.withCountry(this.code);
+		output += language.country() + this.name + " " + Emoji.withCountry(this.code);
 		if(this.city != null){
-			output += " and the closest city is " + this.city;
+			output += language.city() + this.city;
 		}
 		return output;
 	}
