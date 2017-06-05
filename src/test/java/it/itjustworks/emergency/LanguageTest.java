@@ -36,6 +36,17 @@ public class LanguageTest {
 		assertEquals("Tu sei in Italy 🇮🇹 e la citta' piu' vicina e' Voghera", country.prettyToString());
 	}
 	
+	@Test
+	public void testFour() {
+		assertEquals(new EnglishLanguage().country(), Utils.language(Utils.getFromLanguageCode("en-US")).country());
+		assertEquals(new EnglishLanguage().city(), Utils.language(Utils.getFromLanguageCode("en-IT")).city());
+	}
+	
+	@Test
+	public void testFive() {
+		assertEquals(new ItalianLanguage().city(), Utils.botLanguage("it-IT").city());
+	}
+	
 	private String italyResponseWithCity() {
 		String output = "";
 		output += "{\"name\":\"Italy\", \"code\":\"IT\", \"police\":\"113\", \"medical\":\"118\", \"fire\":\"115\", \"closestcity\":\"Voghera\"}";
