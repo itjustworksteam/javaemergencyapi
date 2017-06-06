@@ -51,4 +51,19 @@ public class EnglishLanguage implements Language {
 		output += "Invalid command. Please see /help for more details.";
 		return output;
 	}
+
+	@Override
+	public String contribute() {
+		String output = "";
+		output += "If you are a developer please follow this link: https://github.com/itjustworksteam/emergencybot/blob/master/README.md\n\n"
+				+ "if you have any suggestion please use the /feedback command.\nThanks so much for your help!\n";
+		return output;
+	}
+
+	@Override
+	public String credits() {
+		String output = "";
+		output += "Developed by @therickys93, co-founder of 'It Just Works'. More info at www.itjustworks.it.";
+		return output;
+	}
 }

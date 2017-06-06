@@ -59,8 +59,23 @@ public class LanguageTest {
 		assertEquals(helpOutput(), language.help());
 		assertEquals(feedbackOutput(), language.feedback());
 		assertEquals(invalidOutput(), language.invalid());
+		assertEquals(contributeOutput(), language.contribute());
+		assertEquals(creditsOutput(), language.credits());
 	}
 	
+	private String creditsOutput() {
+		String output = "";
+		output += "Developed by @therickys93, co-founder of 'It Just Works'. More info at www.itjustworks.it.";
+		return output;
+	}
+
+	private String contributeOutput() {
+		String output = "";
+		output += "If you are a developer please follow this link: https://github.com/itjustworksteam/emergencybot/blob/master/README.md\n\n"
+				+ "if you have any suggestion please use the /feedback command.\nThanks so much for your help!\n";
+		return output;
+	}
+
 	public String invalidOutput() {
 		String output = "";
 		output += "Invalid command. Please see /help for more details.";

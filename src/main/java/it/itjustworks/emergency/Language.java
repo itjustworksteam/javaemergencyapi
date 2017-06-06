@@ -7,4 +7,6 @@ public interface Language {
 	public String help();
 	public String feedback();
 	public String invalid();
+	public String contribute();
+	public String credits();
 }

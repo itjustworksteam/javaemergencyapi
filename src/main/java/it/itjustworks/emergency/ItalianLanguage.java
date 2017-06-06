@@ -50,4 +50,19 @@ public class ItalianLanguage implements Language {
 		return output;
 	}
 
+	@Override
+	public String contribute() {
+		String output = "";
+		output += "Se sei uno sviluppatore per favore guarda questo link: https://github.com/itjustworksteam/emergencybot/blob/master/README.md\n\n" 
+				+ "se hai qualsuasi suggerimento per favore utilizza il comando /feedback.\nGrazie per il tuo aiuto!\n";
+		return output;
+	}
+
+	@Override
+	public String credits() {
+		String output = "";
+		output += "Sviluppato da @therickys93, co-fondatore di 'It Just Works'. Maggiori informazioni su www.itjustworks.it.";
+		return output;
+	}
+
 }
